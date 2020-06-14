@@ -11,15 +11,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: ChangeNotifierProvider(
-        create: (context) => AppStateProvider(),
-        child: Dashboard(),
+    return ChangeNotifierProvider<AppStateProvider>(
+      create: (context) => AppStateProvider(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: Dashboard(),
       ),
     );
   }
@@ -30,9 +30,11 @@ class StateChanger extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           RaisedButton(
-            child: Text("Press me to change Dashboard"),
+            child: Text("Press me to change Dashboard Value"),
             onPressed: () {
               // Change state on page 2
               Provider.of<AppStateProvider>(context, listen: false).changeValue(
@@ -55,10 +57,13 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
               "Here is your value, ${Provider.of<AppStateProvider>(context).value}"),
           RaisedButton(
+            child: Text("Navigate to Page Two"),
             onPressed: () {
               Navigator.push(
                 context,
