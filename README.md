@@ -1,6 +1,9 @@
+It would be great to welcome you on my channel:
+[https://flutterexplained.live/](https://flutterexplained.live/)
+
 # minimalexample
 
-A new Flutter application.
+A minimal example of Provider usage on multiple screens.
 
 ## Getting Started
 
