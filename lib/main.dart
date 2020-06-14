@@ -75,7 +75,7 @@ class Dashboard extends StatelessWidget {
 }
 
 class AppStateProvider extends ChangeNotifier {
-  int _value;
+  int _value = 0;
 
   void changeValue(int newValue) {
     _value = newValue;
